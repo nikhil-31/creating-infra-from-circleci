@@ -1,6 +1,7 @@
 
 version: 2.1
-
+orbs:
+  aws-cli: circleci/aws-cli@2.0.3
 jobs:
   create-infrastructure:
     docker:
@@ -13,7 +14,7 @@ jobs:
             aws cloudformation deploy 
             --template-file template.yml 
             --stack-name my-stack
-worklows:  
+workflows:  
   deployment:
     jobs:
       - create-infrastructure
