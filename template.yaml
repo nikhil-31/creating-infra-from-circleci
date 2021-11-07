@@ -3,19 +3,19 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: Creating infrastructure from circle ci
 Resources:
   EC2Instance:
-  Type: AWS::EC2::Instance
-  Properties:
-    SecurityGroups:
-      - !Ref InstanceSecurityGroup
-    KeyName: Udacity
-    ImageId: ami-083654bd07b5da81d
-    InstanceType: t3.micro
+    Type: AWS::EC2::Instance
+    Properties:
+      SecurityGroups:
+        - !Ref InstanceSecurityGroup
+      KeyName: Udacity
+      ImageId: ami-083654bd07b5da81d
+      InstanceType: t3.micro
   InstanceSecurityGroup:
-  Type: 'AWS::EC2::SecurityGroup'
-  Properties:
-    GroupDescription: Enable SSH access via port 22
-    SecurityGroupIngress:
-      - IpProtocol: tcp
-        FromPort: '22'
-        ToPort: '22'
-        CidrIp: 0.0.0.0/0
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Enable SSH access via port 22
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0
